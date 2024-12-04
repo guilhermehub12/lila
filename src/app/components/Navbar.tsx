@@ -18,7 +18,7 @@ const navItems = [
   { name: 'Produtos', href: '#Product' },
   { name: 'Depoimentos', href: '#Testimonial' },
   { name: 'FAQs', href: '#FAQs' },
-  { name: 'Contato', href: '#Contact' },
+  { name: 'Fazer Pedido', href: '#CakeOrder' },
 ]
 
 export default function Navbar() {

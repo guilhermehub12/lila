@@ -1,6 +1,6 @@
 import About from "./components/About";
 import Hero from "./components/Hero";
-import Contact from "./components/Contact";
+import CakeOrder from "./components/CakeOrder";
 import Products from "./components/Products";
 import Testimonials from "./components/Testimonials";
 import Navbar from "./components/Navbar";
@@ -20,7 +20,7 @@ export default function Home() {
       <Products />
       <Testimonials />
       <FAQ />
-      <Contact />
+      <CakeOrder />
       <Footer />
     </main>
   )
