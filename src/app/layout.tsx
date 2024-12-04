@@ -26,26 +26,32 @@ export default function RootLayout({
 
   useEffect(() => {
     const smoothScroll = (e: MouseEvent) => {
-      e.preventDefault()
-      const target = e.target as HTMLAnchorElement
+      const target = e.currentTarget as HTMLAnchorElement
       const id = target.getAttribute('href')
-      if (id?.startsWith('#')) {
-        const element = document.querySelector(id)
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          })
-        }
+      
+      if (!id?.startsWith('#')) return
+      
+      e.preventDefault()
+      const element = document.querySelector(id)
+      
+      if (!element) return
+      
+      const options: ScrollIntoViewOptions = {
+        behavior: 'smooth',
+        block: 'start',
       }
+      
+      element.scrollIntoView(options)
     }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  
+    const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+    
+    anchors.forEach(anchor => {
       anchor.addEventListener('click', smoothScroll)
     })
-
+  
     return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchors.forEach(anchor => {
         anchor.removeEventListener('click', smoothScroll)
       })
     }
