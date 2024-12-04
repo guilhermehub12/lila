@@ -140,15 +140,13 @@ export default function CakeOrderForm() {
 
       if (response.ok) {
         // Redirecionar para a página de confirmação
-        window.location.href = '/confirmacao'
+        window.location.href = '/confirmation'
       } else {
         setSubmitError(responseData.message || 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.')
-        // alert(submitError)
       }
     } catch (error) {
       console.error('Erro:', error)
       setSubmitError('Ocorreu um erro de conexão. Por favor, tente novamente mais tarde.')
-      // alert('Erro ao enviar o pedido!')
     } finally {
       setIsSubmitting(false)
     }
